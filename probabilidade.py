@@ -62,14 +62,11 @@ print(f"\n(d) Coeficiente de correlação de Pearson entre x0 e x9: {corr:.6f}")
 stat_x_sw, p_x_sw = shapiro(x)
 stat_y_sw, p_y_sw = shapiro(y)
 
-stat_x_dp, p_x_dp = normaltest(x)
-stat_y_dp, p_y_dp = normaltest(y)
-
 norm_results = pd.DataFrame({
-    'Teste': ['Shapiro-Wilk', 'Shapiro-Wilk', "D’Agostino-Pearson", "D’Agostino-Pearson"],
-    'Variável': ['x0', 'x9', 'x0', 'x9'],
-    'Estatística': [stat_x_sw, stat_y_sw, stat_x_dp, stat_y_dp],
-    'p-valor': [p_x_sw, p_y_sw, p_x_dp, p_y_dp]
+    'Teste': ['Shapiro-Wilk', 'Shapiro-Wilk'],
+    'Variável': ['x0', 'x9'],
+    'Estatística': [stat_x_sw, stat_y_sw],
+    'p-valor': [p_x_sw, p_y_sw]
 })
 print("\n(e) Testes de normalidade para x0 e x9:")
 print(norm_results.to_string(index=False))
